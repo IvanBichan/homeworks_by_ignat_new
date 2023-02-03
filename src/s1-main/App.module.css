@@ -3,8 +3,13 @@
 }
 
 .hw {
-
+    display: flex;
+    flex-direction: column;
+    width: 1080px;
+    margin: 0 auto;
 }
+
+
 
 .hwTitle {
 
