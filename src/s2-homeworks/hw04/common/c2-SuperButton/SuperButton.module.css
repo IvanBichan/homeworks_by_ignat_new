@@ -11,12 +11,9 @@
 }
 
 .disable {
-    width: 133px;
-    height: 30px;
-    opacity: 0.5;
-    border-radius: 3px;
-    color: #6d6d75;
     background: #004D99;
+    opacity: 0.5;
+    color: #002E5C;
 }
 
 .secondary {
@@ -69,5 +66,4 @@
     background: #B21232;
 }
 
-.button:disabled {
-}
+
