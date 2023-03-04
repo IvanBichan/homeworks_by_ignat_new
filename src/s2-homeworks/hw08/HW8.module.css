@@ -1,23 +1,47 @@
 .item {
+    border-bottom: solid 2px rgba(115, 107, 107, 0.3);
+
 }
 
 .item:last-of-type {
+    border: none;
 }
 
 .users {
+    font-family: "Baskerville Old Face", sans-serif;
+    font-size: 14px;
+    margin-top: 10px;
+    border-collapse: collapse;
 }
 
 .buttonsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.buttonsContainer button {
+    margin-left: 5px;
 }
 
 .container {
+    display: flex;
+    flex-direction: column;
+    width: 550px;
+
 }
 
 .thead {
+    font-weight: bold;
+    background-color: gray;
+    height: 30px;
+    font-family: "Baskerville Old Face", sans-serif;
 }
 
 .nameCol {
+    padding: 5px 0 5px 5px;
 }
 
 .ageCol {
+    padding: 5px 0 10px 5px;
+    font-weight: bold;
 }
