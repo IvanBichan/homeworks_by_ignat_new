@@ -1,7 +1,18 @@
 .buttonsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.buttonsContainer button {
+    width: 100px;
 }
 
 .clock {
+    display: flex;
+    flex-direction: column;
+    width: 220px;
 }
 
 .watch {
