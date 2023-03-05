@@ -1,22 +1,51 @@
 .buttonsContainer {
+    display: flex;
+    flex-direction: row;
 }
 
+.buttonsContainer button {
+    margin: 7px;
+    width: max-content;
+}
+
+
 .responseContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .imageContainer {
+    width: 450px;
+    margin: 10px;
 }
 
 .image {
 }
 
 .textContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 .code {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 37px;
 }
 
 .text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
 }
 .info {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
 }
