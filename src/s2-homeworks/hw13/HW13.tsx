@@ -44,16 +44,16 @@ const HW13 = () => {
             .catch((e) => {
                console.log(e.response)
                 if (e.response.status === 500) {
-                    setCode('Ошибка 500!')
-                    setImage(error500)
-                    setText(e.response.data.errorText)
-                    setInfo(e.response.data.info)
-                }
-                if (e.response.status === 400) {
                     setCode('Ошибка 400!')
                     setImage(error400)
-                    setText(e.response.data.errorText)
-                    setInfo(e.response.data.info)
+                    setText('Ты не отправил success в body вообще!')
+                    setInfo('ошибка 400 - обычно означает что скорее всего фронт отправил что-то не то на бэк!')
+                }
+                if (e.response.status === 400) {
+                    setCode('Ошибка 500!')
+                    setImage(error500)
+                    setText('эмитация ошибки на сервере')
+                    setInfo('ошибка 500 - обычно означает что что-то сломалось на сервере, например база данных)')
                 }
                 if (e.response.status === 0) {
                     setCode('Error')
@@ -84,7 +84,7 @@ const HW13 = () => {
                     </SuperButton>
                     <SuperButton
                         id={'hw13-send-false'}
-                        onClick={send(undefined)}
+                        onClick={send(false)}
                         xType={'secondary'}
                         // дописать
 
@@ -93,7 +93,7 @@ const HW13 = () => {
                     </SuperButton>
                     <SuperButton
                         id={'hw13-send-undefined'}
-                        onClick={send(false)}
+                        onClick={send(undefined)}
                         xType={'secondary'}
                         // дописать
 
