@@ -5,6 +5,7 @@ import axios from 'axios'
 import SuperPagination from './common/c9-SuperPagination/SuperPagination'
 import {useSearchParams} from 'react-router-dom'
 import SuperSort from './common/c10-SuperSort/SuperSort'
+import {CircularProgress} from "@mui/material";
 
 /*
 * 1 - дописать SuperPagination
@@ -51,10 +52,13 @@ const HW15 = () => {
         setLoading(true)
         getTechs(params)
             .then((res) => {
+                if(res) {
+                    setTotalCount(res.data.totalCount)
+                    setTechs(res.data.techs)
+                }
+                setLoading(false)
                 // делает студент
-
                 // сохранить пришедшие данные
-
                 //
             })
     }
@@ -63,12 +67,15 @@ const HW15 = () => {
         // делает студент
 
         // setPage(
+       setPage(newPage)
         // setCount(
-
+        setCount(newCount)
         // sendQuery(
-        // setSearchParams(
 
+        // setSearchParams(
+        setSearchParams({page: newPage.toString(), count: newCount.toString(), sort})
         //
+
     }
 
     const onChangeSort = (newSort: string) => {
@@ -76,12 +83,20 @@ const HW15 = () => {
 
         // setSort(
         // setPage(1) // при сортировке сбрасывать на 1 страницу
+        setSort(newSort)
+        setPage(1)
 
         // sendQuery(
+
         // setSearchParams(
+        setSearchParams({page: page.toString(), count: count.toString(), sort: newSort})
 
         //
     }
+    useEffect(() => {
+        const params = Object.fromEntries(searchParams)
+        sendQuery(params)
+    }, [searchParams])
 
     useEffect(() => {
         const params = Object.fromEntries(searchParams)
@@ -107,15 +122,13 @@ const HW15 = () => {
             <div className={s2.hwTitle}>Homework #15</div>
 
             <div className={s2.hw}>
-                {idLoading && <div id={'hw15-loading'} className={s.loading}>Loading...</div>}
-
                 <SuperPagination
                     page={page}
                     itemsCountForPage={count}
                     totalCount={totalCount}
                     onChange={onChangePagination}
                 />
-
+                {idLoading && <CircularProgress />}
                 <div className={s.rowHeader}>
                     <div className={s.techHeader}>
                         tech
